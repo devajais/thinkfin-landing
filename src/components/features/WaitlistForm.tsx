@@ -13,7 +13,6 @@ export function WaitlistForm() {
     e.preventDefault();
     setStatus("loading");
 
-    // Email validation
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!emailRegex.test(email)) {
       setStatus("error");
@@ -21,21 +20,20 @@ export function WaitlistForm() {
       return;
     }
 
-    // Simulate API call (replace with actual backend integration)
     setTimeout(() => {
       setStatus("success");
-      setMessage("🎉 You're on the waitlist! We'll reach out soon.");
+      setMessage("Thanks! You're on the waitlist.");
       setEmail("");
     }, 1000);
   };
 
   return (
-    <div className="max-w-2xl mx-auto">
+    <div className="max-w-md mx-auto">
       <form onSubmit={handleSubmit} className="space-y-4">
-        <div className="flex flex-col sm:flex-row gap-4">
+        <div className="flex flex-col sm:flex-row gap-3">
           <Input
             type="email"
-            placeholder="Enter your email"
+            placeholder="Your email"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
             disabled={status === "loading" || status === "success"}
@@ -44,28 +42,26 @@ export function WaitlistForm() {
           />
           <Button
             type="submit"
-            variant="primary"
+            variant="secondary"
             size="md"
             disabled={status === "loading" || status === "success"}
-            className="sm:w-auto whitespace-nowrap"
+            className="sm:w-auto whitespace-nowrap bg-white text-blue-600 hover:bg-slate-50"
           >
             {status === "loading" ? "Joining..." : "Join Waitlist"}
           </Button>
         </div>
 
         {message && (
-          <div className={`
-            p-4 rounded-lg text-center font-medium
-            ${status === "success" ? "bg-[#059669]/10 text-[#059669]" : ""}
-            ${status === "error" ? "bg-[#ea580c]/10 text-[#ea580c]" : ""}
-          `}>
+          <div className={`p-3 rounded-lg text-center text-sm ${
+            status === "success" ? "bg-green-50 text-green-700" : "bg-red-50 text-red-700"
+          }`}>
             {message}
           </div>
         )}
       </form>
 
-      <p className="text-sm text-slate-500 text-center mt-4">
-        We respect your privacy. No spam, ever. Unsubscribe anytime.
+      <p className="text-sm text-blue-100 text-center mt-4">
+        No spam. Unsubscribe anytime.
       </p>
     </div>
   );
