@@ -58,12 +58,17 @@ export function FeaturesSection() {
               whileHover={{ y: -8, transition: { duration: 0.2 } }}
               className="relative group"
             >
-              <div className="h-full p-8 rounded-2xl bg-gradient-to-br from-purple-900/50 to-fuchsia-900/50 border border-purple-500/20 backdrop-blur-sm hover:border-purple-500/40 transition-all">
-                <div className="w-14 h-14 rounded-xl bg-gradient-to-br from-purple-500 to-fuchsia-500 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
-                  <feature.icon className="w-7 h-7 text-white" />
+              <div className="h-full p-8 rounded-2xl bg-gradient-to-br from-purple-900/50 to-fuchsia-900/50 border border-purple-500/20 backdrop-blur-sm hover:border-purple-500/40 transition-all card-hover relative overflow-hidden">
+                {/* Animated background glow */}
+                <div className="absolute inset-0 bg-gradient-to-br from-purple-500/0 to-fuchsia-500/0 group-hover:from-purple-500/10 group-hover:to-fuchsia-500/10 transition-all duration-500" />
+
+                <div className="relative z-10">
+                  <div className="w-14 h-14 rounded-xl bg-gradient-to-br from-purple-500 to-fuchsia-500 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform glow-purple">
+                    <feature.icon className="w-7 h-7 text-white" />
+                  </div>
+                  <h3 className="text-xl font-bold mb-3 text-white">{feature.title}</h3>
+                  <p className="text-gray-400 leading-relaxed">{feature.description}</p>
                 </div>
-                <h3 className="text-xl font-bold mb-3 text-white">{feature.title}</h3>
-                <p className="text-gray-400 leading-relaxed">{feature.description}</p>
               </div>
             </motion.div>
           ))}

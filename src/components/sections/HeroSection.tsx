@@ -3,12 +3,18 @@
 import { motion } from "framer-motion";
 import { ArrowRight, Sparkles } from "lucide-react";
 import { Button } from "@/components/ui/Button";
+import { ParticlesBackground } from "@/components/animations/ParticlesBackground";
+import { LaserBackground } from "@/components/animations/LaserBackground";
 
 export function HeroSection() {
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
       {/* Animated background gradient */}
       <div className="absolute inset-0 bg-gradient-to-br from-purple-900 via-violet-900 to-fuchsia-900 gradient-animate opacity-50" />
+
+      {/* Particles and Laser effects */}
+      <ParticlesBackground />
+      <LaserBackground />
 
       {/* Animated orbs */}
       <motion.div
