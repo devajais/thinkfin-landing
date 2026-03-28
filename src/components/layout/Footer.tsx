@@ -20,8 +20,10 @@ export function Footer() {
           <div>
             <h4 className="font-semibold mb-4 text-white">Product</h4>
             <ul className="space-y-2 text-gray-400">
-              <li><a href="#features" className="hover:text-purple-300 transition-colors">Features</a></li>
-              <li><a href="#how-it-works" className="hover:text-purple-300 transition-colors">How It Works</a></li>
+              <li><a href="/about" className="hover:text-purple-300 transition-colors">About</a></li>
+              <li><a href="/features" className="hover:text-purple-300 transition-colors">Features</a></li>
+              <li><a href="/how-it-works" className="hover:text-purple-300 transition-colors">How It Works</a></li>
+              <li><a href="/pricing" className="hover:text-purple-300 transition-colors">Pricing</a></li>
             </ul>
           </div>
 
@@ -29,7 +31,6 @@ export function Footer() {
             <h4 className="font-semibold mb-4 text-white">Contact</h4>
             <div className="space-y-2 text-gray-400">
               <div>devashishjaiswal84@gmail.com</div>
-              <div>+91 9653088918</div>
             </div>
           </div>
         </div>

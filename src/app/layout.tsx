@@ -27,7 +27,6 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${spaceGrotesk.variable}`}>
       <body className="min-h-screen bg-[#0a0a0f] text-white antialiased">
-        <div className="scan-line" />
         {children}
       </body>
     </html>
