@@ -9,13 +9,21 @@ const spaceGrotesk = Space_Grotesk({
 });
 
 export const metadata: Metadata = {
-  title: "ThinkFin - AI-Powered Personal Finance",
-  description: "Your AI financial advisor. Get personalized financial advice tailored to your life, goals, and income.",
-  keywords: ["personal finance", "AI advisor", "financial planning", "India"],
+  title: "ThinkFin - AI-Powered Personal Finance for Every Indian",
+  description: "India's first AI-powered personal financial operating system. Get personalized financial advice, investment recommendations, and smart alerts tailored to your income, goals, and life.",
+  keywords: ["personal finance", "AI advisor", "financial planning", "India", "investment", "mutual funds", "insurance", "financial health"],
+  metadataBase: new URL('https://thinkfin.co'),
   openGraph: {
-    title: "ThinkFin - AI-Powered Personal Finance",
-    description: "Your AI financial advisor. Get personalized advice tailored to your life.",
+    title: "ThinkFin - AI-Powered Personal Finance for Every Indian",
+    description: "India's first AI-powered personal financial operating system. Get personalized advice tailored to your reality.",
     type: "website",
+    url: "https://thinkfin.co",
+    siteName: "ThinkFin",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "ThinkFin - AI-Powered Personal Finance",
+    description: "Personalized financial advice for every Indian. Built with AI.",
   },
 };
 

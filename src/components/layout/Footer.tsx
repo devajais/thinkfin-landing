@@ -4,7 +4,7 @@ export function Footer() {
   return (
     <footer className="border-t border-purple-500/20 py-12 bg-[#0a0a0f]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6">
-        <div className="grid md:grid-cols-3 gap-8 mb-8">
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mb-8">
           <div>
             <div className="flex items-center gap-2 font-bold text-xl mb-4">
               <Sparkles className="w-6 h-6 text-purple-400" />
@@ -24,6 +24,14 @@ export function Footer() {
               <li><a href="/features" className="hover:text-purple-300 transition-colors">Features</a></li>
               <li><a href="/how-it-works" className="hover:text-purple-300 transition-colors">How It Works</a></li>
               <li><a href="/pricing" className="hover:text-purple-300 transition-colors">Pricing</a></li>
+            </ul>
+          </div>
+
+          <div>
+            <h4 className="font-semibold mb-4 text-white">Legal</h4>
+            <ul className="space-y-2 text-gray-400">
+              <li><a href="/privacy" className="hover:text-purple-300 transition-colors">Privacy Policy</a></li>
+              <li><a href="/terms" className="hover:text-purple-300 transition-colors">Terms of Service</a></li>
             </ul>
           </div>
 
