@@ -9,9 +9,9 @@ import { CTASection } from "@/components/sections/CTASection";
 
 export default function Home() {
   return (
-    <div className="min-h-screen">
+    <div className="flex flex-col min-h-screen">
       <Header />
-      <main>
+      <main className="flex-1">
         <HeroSection />
         <ProblemSection />
         <SolutionSection />

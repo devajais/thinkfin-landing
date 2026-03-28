@@ -48,7 +48,7 @@ export default function RootLayout({
       lang="en-IN"
       className={`${inter.variable} ${poppins.variable} scroll-smooth`}
     >
-      <body className="min-h-screen bg-white text-slate-900 antialiased">{children}</body>
+      <body className="min-h-screen bg-white text-slate-900 antialiased flex flex-col">{children}</body>
     </html>
   );
 }
