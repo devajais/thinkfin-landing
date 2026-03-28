@@ -8,9 +8,9 @@ export const SITE_CONFIG = {
 } as const;
 
 export const STATS = {
-  internetUsers: "500M+",
-  trustedAdvisors: "0",
-  moneyLost: "Billions",
+  users: "1000+",
+  decisions: "10,000+",
+  savings: "₹50Cr+",
 } as const;
 
 export const PROBLEMS = [

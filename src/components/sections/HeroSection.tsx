@@ -1,9 +1,8 @@
 "use client";
 
 import { Button } from "@/components/ui/Button";
-import { SITE_CONFIG, STATS } from "@/lib/constants";
 import { motion } from "framer-motion";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, Sparkles } from "lucide-react";
 
 export function HeroSection() {
   const scrollToWaitlist = () => {
@@ -11,47 +10,46 @@ export function HeroSection() {
   };
 
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-[#1e3a8a] via-[#1e40af] to-[#1e3a8a] text-white pt-20">
-      {/* Animated background circles */}
+    <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-blue-600 via-blue-700 to-indigo-800 text-white pt-20">
+      {/* Animated background */}
       <div className="absolute inset-0 overflow-hidden">
         <motion.div
           animate={{
             scale: [1, 1.2, 1],
-            opacity: [0.3, 0.2, 0.3],
+            opacity: [0.15, 0.25, 0.15],
           }}
           transition={{
             duration: 8,
             repeat: Infinity,
             ease: "easeInOut",
           }}
-          className="absolute top-1/4 right-0 w-96 h-96 bg-[#ea580c] rounded-full blur-3xl opacity-20"
+          className="absolute -top-20 -right-20 w-96 h-96 bg-orange-500 rounded-full blur-3xl"
         />
         <motion.div
           animate={{
             scale: [1, 1.1, 1],
-            opacity: [0.2, 0.3, 0.2],
+            opacity: [0.1, 0.2, 0.1],
           }}
           transition={{
             duration: 10,
             repeat: Infinity,
             ease: "easeInOut",
           }}
-          className="absolute bottom-1/4 left-0 w-96 h-96 bg-[#059669] rounded-full blur-3xl opacity-20"
+          className="absolute -bottom-20 -left-20 w-96 h-96 bg-green-500 rounded-full blur-3xl"
         />
       </div>
 
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="max-w-5xl mx-auto text-center">
-          {/* Pre-seed badge */}
+          {/* Badge */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
-            className="inline-block mb-6"
+            className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm border border-white/20 px-4 py-2 rounded-full text-sm font-medium mb-8"
           >
-            <span className="bg-[#ea580c] text-white px-4 py-2 rounded-full text-sm font-semibold">
-              PRE-SEED ROUND ₹2–3 Cr
-            </span>
+            <Sparkles size={16} className="text-yellow-300" />
+            <span>Your Personal Financial OS</span>
           </motion.div>
 
           {/* Main headline */}
@@ -61,9 +59,10 @@ export function HeroSection() {
             transition={{ duration: 0.6, delay: 0.1 }}
             className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-6 leading-tight"
           >
-            India&apos;s First <br />
-            <span className="text-[#ea580c]">Personal Financial</span> <br />
-            Operating System
+            Financial decisions, <br />
+            <span className="bg-gradient-to-r from-orange-400 to-pink-400 bg-clip-text text-transparent">
+              personalized for you
+            </span>
           </motion.h1>
 
           {/* Subheading */}
@@ -71,53 +70,56 @@ export function HeroSection() {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="text-xl md:text-2xl mb-12 text-slate-200 max-w-3xl mx-auto"
+            className="text-xl md:text-2xl mb-12 text-blue-100 max-w-3xl mx-auto leading-relaxed"
           >
-            AI-powered. Hyper-personalized. Built for every earning Indian.
+            Stop guessing. Start knowing. Get AI-powered financial advice tailored to your income, goals, and life.
           </motion.p>
 
-          {/* Stats */}
+          {/* CTA Buttons */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.3 }}
-            className="grid grid-cols-1 sm:grid-cols-3 gap-6 mb-12 max-w-4xl mx-auto"
-          >
-            <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/20">
-              <div className="text-4xl md:text-5xl font-bold mb-2 text-[#ea580c]">
-                {STATS.internetUsers}
-              </div>
-              <div className="text-sm md:text-base text-slate-200">Internet users</div>
-            </div>
-            <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/20">
-              <div className="text-4xl md:text-5xl font-bold mb-2 text-[#ea580c]">
-                {STATS.trustedAdvisors}
-              </div>
-              <div className="text-sm md:text-base text-slate-200">Personal advisors they trust</div>
-            </div>
-            <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/20">
-              <div className="text-4xl md:text-5xl font-bold mb-2 text-[#ea580c]">
-                {STATS.moneyLost}
-              </div>
-              <div className="text-sm md:text-base text-slate-200">Lost to bad decisions</div>
-            </div>
-          </motion.div>
-
-          {/* CTA */}
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.4 }}
+            className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-16"
           >
             <Button
               variant="primary"
               size="lg"
               onClick={scrollToWaitlist}
-              className="group"
+              className="group text-lg px-8 py-4"
             >
-              Join Early Access
+              Get Started Free
               <ArrowRight className="ml-2 group-hover:translate-x-1 transition-transform" size={20} />
             </Button>
+            <Button
+              variant="outline"
+              size="lg"
+              onClick={() => document.getElementById("features")?.scrollIntoView({ behavior: "smooth" })}
+              className="text-lg px-8 py-4 bg-white/10 border-white/30 text-white hover:bg-white hover:text-blue-700"
+            >
+              See How It Works
+            </Button>
+          </motion.div>
+
+          {/* Trust indicators */}
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.6, delay: 0.5 }}
+            className="flex flex-wrap justify-center items-center gap-8 text-sm text-blue-200"
+          >
+            <div className="flex items-center gap-2">
+              <div className="w-2 h-2 bg-green-400 rounded-full"></div>
+              <span>Free to use</span>
+            </div>
+            <div className="flex items-center gap-2">
+              <div className="w-2 h-2 bg-green-400 rounded-full"></div>
+              <span>100% transparent</span>
+            </div>
+            <div className="flex items-center gap-2">
+              <div className="w-2 h-2 bg-green-400 rounded-full"></div>
+              <span>Built for India</span>
+            </div>
           </motion.div>
         </div>
       </div>

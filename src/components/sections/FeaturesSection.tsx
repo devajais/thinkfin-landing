@@ -1,93 +1,95 @@
 import { ScrollReveal } from "@/components/animations/ScrollReveal";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/Card";
-import { VerdictCard } from "@/components/features/VerdictCard";
-import { FEATURES } from "@/lib/constants";
-import { Target, TrendingUp, Shield, Scale, Bell } from "lucide-react";
-
-const iconMap: Record<string, React.ReactNode> = {
-  target: <Target size={32} />,
-  "trending-up": <TrendingUp size={32} />,
-  shield: <Shield size={32} />,
-  scale: <Scale size={32} />,
-  bell: <Bell size={32} />,
-};
+import { MessageSquare, TrendingUp, Shield, Newspaper, Bell } from "lucide-react";
 
 export function FeaturesSection() {
+  const features = [
+    {
+      icon: <MessageSquare size={32} />,
+      title: "Ask Anything",
+      description: "Should I take this loan? Buy insurance? Change jobs? Just ask in plain English or Hindi.",
+      color: "from-blue-500 to-blue-600",
+      example: "\"Should I buy a ₹4L bike on EMI?\"",
+    },
+    {
+      icon: <TrendingUp size={32} />,
+      title: "Smart Investments",
+      description: "Get personalized mutual fund recommendations based on your goals and risk tolerance.",
+      color: "from-green-500 to-emerald-600",
+      example: "Top 3 funds for your goals",
+    },
+    {
+      icon: <Shield size={32} />,
+      title: "Insurance Made Simple",
+      description: "Know exactly how much life and health insurance you need. No guesswork.",
+      color: "from-purple-500 to-purple-600",
+      example: "Your recommended cover: ₹1.5Cr",
+    },
+    {
+      icon: <Newspaper size={32} />,
+      title: "Budget Updates",
+      description: "New tax rules? RBI changes? We tell you what it means for YOUR wallet in rupees.",
+      color: "from-orange-500 to-amber-600",
+      example: "New tax regime saves you ₹15K",
+    },
+    {
+      icon: <Bell size={32} />,
+      title: "Smart Alerts",
+      description: "Get notified when you're spending too much, saving too little, or missing opportunities.",
+      color: "from-red-500 to-pink-600",
+      example: "Spending up 15% this month",
+    },
+  ];
+
   return (
-    <section className="py-20 bg-slate-50">
+    <section id="features" className="py-20 bg-gradient-to-b from-slate-50 to-white">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <ScrollReveal>
           <div className="max-w-4xl mx-auto text-center mb-16">
             <h2 className="text-3xl md:text-5xl font-bold mb-6 text-slate-900">
-              Five Modules. One Ecosystem.
+              Everything You Need,<br />One Place
             </h2>
-            <p className="text-xl text-slate-600">
-              Each module feeds from the Financial Persona. Each makes the others smarter.
+            <p className="text-xl text-slate-600 leading-relaxed">
+              From daily decisions to life-changing choices, ThinkFin has you covered.
             </p>
           </div>
         </ScrollReveal>
 
-        {/* Features Grid */}
-        <div className="max-w-6xl mx-auto mb-20">
+        <div className="max-w-6xl mx-auto">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {FEATURES.map((feature, index) => (
-              <ScrollReveal key={feature.id} delay={index * 0.1}>
-                <Card hover className="h-full">
-                  <CardHeader>
-                    <div className={`
-                      w-16 h-16 rounded-2xl flex items-center justify-center mb-4
-                      ${index === 0 ? 'bg-[#1e3a8a]/10 text-[#1e3a8a]' : ''}
-                      ${index === 1 ? 'bg-[#1e40af]/10 text-[#1e40af]' : ''}
-                      ${index === 2 ? 'bg-[#059669]/10 text-[#059669]' : ''}
-                      ${index === 3 ? 'bg-[#ea580c]/10 text-[#ea580c]' : ''}
-                      ${index === 4 ? 'bg-[#1e3a8a]/10 text-[#1e3a8a]' : ''}
-                    `}>
-                      {iconMap[feature.icon]}
-                    </div>
-                    <CardTitle className="text-xl mb-2">{feature.title}</CardTitle>
-                  </CardHeader>
-                  <CardContent>
-                    <CardDescription className="text-base">
-                      {feature.description}
-                    </CardDescription>
-                  </CardContent>
-                </Card>
+            {features.map((feature, index) => (
+              <ScrollReveal key={index} delay={index * 0.1}>
+                <div className="bg-white rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-all duration-300 border border-slate-100 group hover:-translate-y-2">
+                  <div className={`w-16 h-16 rounded-2xl bg-gradient-to-br ${feature.color} flex items-center justify-center text-white mb-6 group-hover:scale-110 transition-transform`}>
+                    {feature.icon}
+                  </div>
+                  <h3 className="text-2xl font-bold mb-3 text-slate-900">{feature.title}</h3>
+                  <p className="text-slate-600 mb-4 leading-relaxed">{feature.description}</p>
+                  <div className="bg-slate-50 rounded-lg p-3 border border-slate-200">
+                    <p className="text-sm text-slate-500 italic">{feature.example}</p>
+                  </div>
+                </div>
               </ScrollReveal>
             ))}
           </div>
         </div>
 
-        {/* Decision Engine Example */}
-        <ScrollReveal>
-          <div className="max-w-6xl mx-auto">
-            <div className="text-center mb-12">
-              <h3 className="text-2xl md:text-4xl font-bold mb-4 text-slate-900">
-                The Decision Engine
+        {/* Example Section */}
+        <ScrollReveal delay={0.4}>
+          <div className="max-w-4xl mx-auto mt-20">
+            <div className="bg-gradient-to-br from-blue-600 to-indigo-700 rounded-3xl p-8 md:p-12 text-white text-center">
+              <h3 className="text-3xl md:text-4xl font-bold mb-4">
+                Try asking:
               </h3>
-              <p className="text-lg text-slate-600">
-                Type anything. Get a verdict built from your numbers.
-              </p>
-            </div>
-
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-              <div>
-                <div className="bg-white p-6 rounded-xl border-2 border-slate-200 mb-4">
-                  <p className="text-lg text-slate-700 italic">
-                    &quot;Should I buy a ₹4L bike on EMI?&quot;
-                  </p>
+              <div className="space-y-3 max-w-2xl mx-auto">
+                <div className="bg-white/10 backdrop-blur-sm rounded-lg p-4 border border-white/20">
+                  <p className="text-lg">&quot;Should I buy a ₹4L bike on EMI?&quot;</p>
                 </div>
-                <p className="text-slate-600 mb-6">Plain Hindi or English. No forms.</p>
-
-                <div className="space-y-4">
-                  <div className="flex items-start gap-3">
-                    <div className="w-2 h-2 bg-[#ea580c] rounded-full mt-2 flex-shrink-0" />
-                    <p className="text-slate-700"><strong>Handles:</strong> Small purchases, EMI decisions, Real estate, Job changes, Investments, Life events</p>
-                  </div>
+                <div className="bg-white/10 backdrop-blur-sm rounded-lg p-4 border border-white/20">
+                  <p className="text-lg">&quot;Is this health insurance enough for my family?&quot;</p>
                 </div>
-              </div>
-
-              <div>
-                <VerdictCard />
+                <div className="bg-white/10 backdrop-blur-sm rounded-lg p-4 border border-white/20">
+                  <p className="text-lg">&quot;Which mutual fund is best for me?&quot;</p>
+                </div>
               </div>
             </div>
           </div>
