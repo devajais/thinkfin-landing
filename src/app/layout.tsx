@@ -1,40 +1,21 @@
 import type { Metadata } from "next";
-import { Inter, Poppins } from "next/font/google";
+import { Space_Grotesk } from "next/font/google";
 import "./globals.css";
 
-const inter = Inter({
-  variable: "--font-inter",
-  subsets: ["latin"],
-  display: "swap",
-});
-
-const poppins = Poppins({
-  variable: "--font-poppins",
-  weight: ["400", "500", "600", "700", "800"],
+const spaceGrotesk = Space_Grotesk({
+  variable: "--font-space-grotesk",
   subsets: ["latin"],
   display: "swap",
 });
 
 export const metadata: Metadata = {
-  title: "ThinkFin AI - India's First Personal Financial Operating System",
-  description: "AI-powered, hyper-personalized financial advice built for every earning Indian. Get personalized decisions, proactive alerts, and unbiased guidance for your financial journey.",
-  keywords: ["personal finance", "financial advisor", "India", "AI", "investment", "insurance", "financial planning"],
-  authors: [{ name: "ThinkFin AI" }],
+  title: "ThinkFin - AI-Powered Personal Finance",
+  description: "Your AI financial advisor. Get personalized financial advice tailored to your life, goals, and income.",
+  keywords: ["personal finance", "AI advisor", "financial planning", "India"],
   openGraph: {
-    title: "ThinkFin AI - India's First Personal Financial Operating System",
-    description: "AI-powered, hyper-personalized financial advice built for every earning Indian.",
+    title: "ThinkFin - AI-Powered Personal Finance",
+    description: "Your AI financial advisor. Get personalized advice tailored to your life.",
     type: "website",
-    locale: "en_IN",
-    siteName: "ThinkFin AI",
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: "ThinkFin AI - India's First Personal Financial Operating System",
-    description: "AI-powered, hyper-personalized financial advice built for every earning Indian.",
-  },
-  robots: {
-    index: true,
-    follow: true,
   },
 };
 
@@ -44,11 +25,10 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html
-      lang="en-IN"
-      className={`${inter.variable} ${poppins.variable} scroll-smooth`}
-    >
-      <body className="min-h-screen bg-white text-slate-900 antialiased flex flex-col">{children}</body>
+    <html lang="en" className={`${spaceGrotesk.variable}`}>
+      <body className="min-h-screen bg-[#0a0a0f] text-white antialiased">
+        {children}
+      </body>
     </html>
   );
 }

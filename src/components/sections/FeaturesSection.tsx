@@ -1,55 +1,72 @@
+"use client";
+
+import { motion } from "framer-motion";
+import { Brain, TrendingUp, Shield, Zap } from "lucide-react";
+
 export function FeaturesSection() {
+  const features = [
+    {
+      icon: Brain,
+      title: "AI-Powered Advice",
+      description: "Get instant answers to any financial question, personalized to your situation.",
+    },
+    {
+      icon: TrendingUp,
+      title: "Smart Investments",
+      description: "Recommendations tailored to your goals, risk tolerance, and timeline.",
+    },
+    {
+      icon: Shield,
+      title: "Insurance Guidance",
+      description: "Know exactly how much coverage you need, no guesswork.",
+    },
+    {
+      icon: Zap,
+      title: "Real-time Updates",
+      description: "Stay informed about tax changes, new regulations, and opportunities.",
+    },
+  ];
+
   return (
-    <section id="features" className="py-16 md:py-24 bg-slate-50">
-      <div className="max-w-6xl mx-auto px-4 sm:px-6">
-        <div className="max-w-3xl mx-auto text-center mb-12 md:mb-16">
-          <h2 className="text-3xl md:text-5xl font-bold text-slate-900 mb-4">
-            What You Can Do
+    <section id="features" className="py-24 relative">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="text-center mb-16"
+        >
+          <h2 className="text-4xl md:text-5xl font-bold mb-4">
+            <span className="bg-gradient-to-r from-purple-200 to-fuchsia-200 bg-clip-text text-transparent">
+              Everything you need
+            </span>
           </h2>
-          <p className="text-lg md:text-xl text-slate-600">
-            Get answers to all your financial questions in seconds.
+          <p className="text-xl text-gray-400 max-w-2xl mx-auto">
+            Powerful features designed to help you make better financial decisions
           </p>
-        </div>
+        </motion.div>
 
-        <div className="grid md:grid-cols-3 gap-6 md:gap-8 max-w-5xl mx-auto">
-          <div className="bg-white p-6 md:p-8 rounded-lg border border-slate-200">
-            <div className="text-3xl mb-4">💬</div>
-            <h3 className="text-xl font-semibold text-slate-900 mb-3">
-              Ask Questions
-            </h3>
-            <p className="text-slate-600 mb-3">
-              Should I buy this? Take that loan? Change jobs? Just ask in plain language.
-            </p>
-            <p className="text-sm text-slate-500 italic">
-              "Should I buy a ₹4L bike on EMI?"
-            </p>
-          </div>
-
-          <div className="bg-white p-6 md:p-8 rounded-lg border border-slate-200">
-            <div className="text-3xl mb-4">📊</div>
-            <h3 className="text-xl font-semibold text-slate-900 mb-3">
-              Investment Advice
-            </h3>
-            <p className="text-slate-600 mb-3">
-              Get fund recommendations tailored to your goals and risk appetite.
-            </p>
-            <p className="text-sm text-slate-500 italic">
-              "Best mutual funds for me?"
-            </p>
-          </div>
-
-          <div className="bg-white p-6 md:p-8 rounded-lg border border-slate-200">
-            <div className="text-3xl mb-4">🛡️</div>
-            <h3 className="text-xl font-semibold text-slate-900 mb-3">
-              Insurance Check
-            </h3>
-            <p className="text-slate-600 mb-3">
-              Know exactly how much coverage you need based on your situation.
-            </p>
-            <p className="text-sm text-slate-500 italic">
-              "Is my insurance enough?"
-            </p>
-          </div>
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+          {features.map((feature, index) => (
+            <motion.div
+              key={index}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: index * 0.1 }}
+              whileHover={{ y: -8, transition: { duration: 0.2 } }}
+              className="relative group"
+            >
+              <div className="h-full p-8 rounded-2xl bg-gradient-to-br from-purple-900/50 to-fuchsia-900/50 border border-purple-500/20 backdrop-blur-sm hover:border-purple-500/40 transition-all">
+                <div className="w-14 h-14 rounded-xl bg-gradient-to-br from-purple-500 to-fuchsia-500 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                  <feature.icon className="w-7 h-7 text-white" />
+                </div>
+                <h3 className="text-xl font-bold mb-3 text-white">{feature.title}</h3>
+                <p className="text-gray-400 leading-relaxed">{feature.description}</p>
+              </div>
+            </motion.div>
+          ))}
         </div>
       </div>
     </section>
