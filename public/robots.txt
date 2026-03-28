@@ -1,0 +1,5 @@
+# robots.txt for ThinkFin AI
+User-agent: *
+Allow: /
+
+Sitemap: https://devajais.github.io/thinkfin-landing/sitemap.xml
