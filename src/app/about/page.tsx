@@ -3,6 +3,8 @@
 import { motion } from "framer-motion";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
+import { ParticlesBackground } from "@/components/animations/ParticlesBackground";
+import { LaserBackground } from "@/components/animations/LaserBackground";
 import { AlertCircle, Users, Target, TrendingUp } from "lucide-react";
 
 export default function AboutPage() {
@@ -33,7 +35,10 @@ export default function AboutPage() {
     <div className="min-h-screen bg-[#0a0a0f]">
       <Header />
 
-      <main className="pt-24">
+      <main className="pt-24 relative">
+        <ParticlesBackground />
+        <LaserBackground />
+
         {/* Hero Section */}
         <section className="py-20 relative overflow-hidden">
           <div className="absolute inset-0 bg-gradient-to-br from-purple-900/20 via-transparent to-fuchsia-900/20" />
@@ -45,14 +50,14 @@ export default function AboutPage() {
               transition={{ duration: 0.6 }}
               className="text-center"
             >
-              <h1 className="text-5xl md:text-6xl font-bold mb-6">
+              <h1 className="text-5xl md:text-7xl font-bold mb-6 leading-tight">
                 <span className="bg-gradient-to-r from-purple-200 to-fuchsia-200 bg-clip-text text-transparent">
-                  Financial advice that's actually about you
+                  About ThinkFin
                 </span>
               </h1>
-              <p className="text-xl text-gray-300 mb-8 max-w-3xl mx-auto">
-                ThinkFin AI is India's first AI-powered personal financial operating system.
-                Every answer is computed from your actual numbers, not a template built for someone else.
+              <p className="text-2xl text-gray-300 max-w-3xl mx-auto">
+                India's first AI-powered personal financial operating system.
+                Every answer computed from your reality.
               </p>
             </motion.div>
           </div>
