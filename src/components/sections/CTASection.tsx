@@ -8,36 +8,14 @@ import { Input } from "@/components/ui/Input";
 
 export function CTASection() {
   const [email, setEmail] = useState("");
-  const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
-  const [errorMessage, setErrorMessage] = useState("");
+  const [status, setStatus] = useState<"idle" | "success">("idle");
 
-  const handleSubmit = async (e: React.FormEvent) => {
+  const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    setStatus("loading");
-    setErrorMessage("");
-
-    try {
-      const response = await fetch('/api/waitlist', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({ email }),
-      });
-
-      const data = await response.json();
-
-      if (response.ok) {
-        setStatus("success");
-        setEmail("");
-      } else {
-        setStatus("error");
-        setErrorMessage(data.error || "Failed to join waitlist. Please try again.");
-      }
-    } catch (error) {
-      setStatus("error");
-      setErrorMessage("Network error. Please check your connection and try again.");
-    }
+    // For now, just show success message without backend
+    // Backend integration coming soon
+    setStatus("success");
+    setEmail("");
   };
 
   return (
@@ -84,22 +62,15 @@ export function CTASection() {
                 />
                 <Button
                   type="submit"
-                  disabled={status === "loading"}
                   className="bg-gradient-to-r from-purple-600 to-fuchsia-600 hover:from-purple-500 hover:to-fuchsia-500 text-white px-6 py-3 rounded-lg font-semibold glow-purple whitespace-nowrap"
                 >
-                  {status === "loading" ? "Joining..." : "Join Waitlist"}
+                  Join Waitlist
                   <ArrowRight className="ml-2" size={18} />
                 </Button>
               </div>
-              {status === "error" && (
-                <motion.p
-                  initial={{ opacity: 0, y: -10 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  className="mt-3 text-red-400 text-sm"
-                >
-                  {errorMessage}
-                </motion.p>
-              )}
+              <p className="mt-4 text-sm text-gray-400 text-center">
+                Coming soon! We'll save your interest.
+              </p>
             </form>
           )}
 
